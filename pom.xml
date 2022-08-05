@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>SpringCloud-API</module>
+        <module>SpringCloud-Provider-8001</module>
+        <module>SpringCloud-Eureka-Server-7001</module>
+        <module>SpringCloud-Consumer-80</module>
+    </modules>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.2</version>
+        <!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+    </parent>
+
+    <packaging>pom</packaging>
+
+    <groupId>com.ke</groupId>
+    <artifactId>SpringBoot-SpringCloud-Ribbon-Feign</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>SpringBoot-SpringCloud-Ribbon-Feign</name>
+    <description>SpringBoot-SpringCloud-Ribbon-Feign</description>
+
+    <!--设置-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+
+        <!--版本管理-->
+        <java.version>1.8</java.version>
+        <junit.version>4.13.2</junit.version>
+        <lombok.version>1.18.24</lombok.version>
+        <durid.version>1.2.8</durid.version>
+        <spring-context.verision>5.3.22</spring-context.verision>
+        <spring.version>2.7.2</spring.version>
+        <logback.version>1.2.11</logback.version>
+        <mysql.version>8.0.29</mysql.version>
+        <mybatis.version>2.2.2</mybatis.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--SpringBoot 启动器 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-Dept</artifactId>
+                <version>${spring.version}</version>
+                <scope>Dept</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring-context.verision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${durid.version}</version>
+            </dependency>
+
+            <!--log4j-->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>Dept</scope>
+            </dependency>
+            <!--lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <!--logback-->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+                <version>3.1.3</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>3.1.3</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--MyBatis 集成-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-devtools</artifactId>
+                <version>${spring.version}</version>
+                <scope>runtime</scope>
+                <optional>true</optional>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

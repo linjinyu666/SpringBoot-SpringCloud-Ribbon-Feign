@@ -1,0 +1,30 @@
+server :
+  port: 8001
+
+
+mybatis:
+  type-aliases-package: com.ke.springcloud.domain
+  mapper-locations    : classpath:mybatis/mapper/*.xml
+  config-location     : classpath:mybatis/mybatis-config.xml
+
+spring :
+  application:
+    name: dept-8001 # 注册到 eureka-server 注册中心的应用名称
+  datasource :
+    type             : com.alibaba.druid.pool.DruidDataSource # 线程池：可自定义
+    driver-class-name: com.mysql.cj.jdbc.Driver # jdbc-driver驱动
+    url              : jdbc:mysql://localhost:3306/db01?useUnicode=true&characterEncoding=UTF-8 # 数据库地址
+    username         : root # 数据库用户名
+    password         : 958823 # 数据库密码
+
+eureka :
+  instance:
+    instance-id                         : service-instance-8001 # 注册到服务中心的实例名称
+    prefer-ip-address                   : true # 是否显示 IP
+    ip-address                          : 127.0.0.1
+    lease-renewal-interval-in-seconds   : 10  # 需要发送给服务注册中心心跳的间隔时间，表明自己还活着
+    lease-expiration-duration-in-seconds: 30 # 最后一次收到心跳后需要等待多久将服务删除
+  client  :
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka
+

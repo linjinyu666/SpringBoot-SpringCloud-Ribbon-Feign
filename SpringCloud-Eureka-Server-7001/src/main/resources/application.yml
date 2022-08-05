@@ -1,0 +1,15 @@
+server:
+  port: 7001 #端口号
+
+eureka:
+  instance:
+    hostname: eureka-server-1 # 主机地址
+    appname : 注册中心 # 名称
+  client  :
+    register-with-eureka: false # 不向注册中心注册自己
+    fetch-registry      : false # 自己为注册中心
+    service-url         :
+      defaultZone: https://${eureka.instance.hostname}:${server.port}/eureka
+  server  :
+    enable-self-preservation     : false # 关闭自我保护机制， 默认：true
+    eviction-interval-timer-in-ms: 4000 # 设置清理间隔（单位：毫秒，默认为 60 * 1000）

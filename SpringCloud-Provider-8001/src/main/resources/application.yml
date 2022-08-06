@@ -9,7 +9,7 @@ mybatis:
 
 spring :
   application:
-    name: dept-8001 # 注册到 eureka-server 注册中心的应用名称
+    name: Services-Provider-Dept # 注册到 eureka-server 注册中心的应用名称
   datasource :
     type             : com.alibaba.druid.pool.DruidDataSource # 线程池：可自定义
     driver-class-name: com.mysql.cj.jdbc.Driver # jdbc-driver驱动

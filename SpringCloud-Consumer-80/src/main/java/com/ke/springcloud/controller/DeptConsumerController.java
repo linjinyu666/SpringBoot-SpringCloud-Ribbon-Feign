@@ -14,7 +14,9 @@ import java.util.List;
  */
 @RestController
 public class DeptConsumerController {
-	private static final String PREFIX = "http://localhost:8001";
+	//	private static final String PREFIX = "http://localhost:8001";
+	private static final String PREFIX = "http://SERVICES-PROVIDER-DEPT"; // 使用 Ribbon 负载均衡，直接调用 eureka 注册中心应用名称即可
+
 	private final RestTemplate restTemplate;
 
 	@Autowired

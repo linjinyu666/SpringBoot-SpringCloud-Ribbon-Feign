@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ke.springcloud.mapper.DeptMapper">
+
+    <resultMap id="deptTable" type="com.ke.springcloud.domain.Dept">
+        <id column="deptno" property="dpId"/>
+        <result column="dname" property="dpName"/>
+        <result column="db_source" property="dbSource"/>
+    </resultMap>
+
+    <select id="queryByID" resultType="Dept" parameterType="Long" resultMap="deptTable">
+        SELECT *
+        from dept
+        where deptno = #{id}
+    </select>
+
+    <select id="queryAll" resultType="Dept" resultMap="deptTable">
+        SELECT *
+        from dept
+    </select>
+
+    <insert id="addDept"  parameterType="Dept">
+        INSERT INTO dept (dname, db_source)
+        VALUES (#{dpName}, #{dbSource})
+    </insert>
+</mapper>

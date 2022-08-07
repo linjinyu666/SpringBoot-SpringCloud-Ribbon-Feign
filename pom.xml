@@ -12,7 +12,7 @@
         <module>SpringCloud-Eureka-Server-7003</module>
         <module>SpringCloud-Consumer-80</module>
     </modules>
-
+ sd d d d d
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
